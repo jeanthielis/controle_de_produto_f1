@@ -1,0 +1,176 @@
+<body>
+    <script src="scriptDefeitos.js"></script>
+    <script src="script.js"></script>
+    <script src="mask.js"></script>
+
+
+
+    <div class="container-fluid transicao">
+       
+        <div  style="border: none;" class="row  cabecalho text-light p-2 fixed-top">
+            <div class="col">
+                <i id="index.html" class=" menu fas fa-arrow-left"></i>
+                <label id="index.html" class="menu text-light">Voltar</label>
+            </div>
+            <div class="col">
+                <strong id="visualizar-check" class="position-relative">
+                    Defeitos
+                   
+                </strong>
+              
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div  class="alert corFundo"  style="display: none;" >
+            <div class="row">
+                <div class="col">
+                    <strong style="position: relative;top: 30px;" class="text-light" for="responsavel">Responsável</strong>
+
+                    <div class="md-form">
+                        <input  id="responsavel" name="responsavel" type="text" class="form-control text-light">
+                    </div>
+                </div>
+               
+               
+            </div>
+
+        </div>
+        <div class="alert corFundo">
+            <div class="row">
+                <div class="col">
+                    <label class="text-light" >Equipe:</label>
+                    <select class="bordaSelect form-control  text-light" name="equipe" id="equipe">
+                        
+                        <option value="1">Equipe 1</option>
+                        <option value="2">Equipe 2</option>
+                        <option value="3">Equipe 3</option>
+                        <option value="4">Equipe 4</option>
+                    </select>
+                </div>
+                    <div class="col">
+                        <label class="text-light" >Linha:</label>
+                        <select class="bordaSelect form-control text-light" name="linha" id="linha">
+                            <option value="0">Selecione</option>
+                            <option>4 </option>
+                            <option>5 </option>
+                            <option>6A/6B </option>
+                            <option>6A</option>
+                            <option>6B</option>
+                            <option>Saída do Forno</option>
+                        </select>
+                    </div>
+            </div>
+            <form id="form-check">
+
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                       <input type="text" id="referencia" class="form-control text-light">
+                       <label class="text-light" for="referencia">Referência</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                       <input type="text" id="lote" class=" form-control text-light">
+                       <label class="text-light" for="lote">Lote</label>
+                    </div>
+                </div>
+            </div>
+
+           </div>
+
+        <div  class="alert corFundo">
+        <strong class="text-light">Defeitos encontrado no Extra</strong>
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                        <input id="defeitos" name="defeitos" type="text" class="form-control text-light">
+                        <label class="text-light" for="defeitos">Defeitos</label>
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="vistoriadas" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="vistoriadas">Peças Vistoriadas</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="encontrada" name="encontrada" type="text" class="form-control text-light">
+                        <label class="text-light" for="encontrada">Total Defeitos</label>
+                    </div>
+                </div>
+
+            </div>    
+          
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="esquadro" name="esquadro" type="text" class="form-control text-light">
+                        <label class="text-light" for="esquadro">Esquadro</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="tamanho" name="tamanho" type="text" class="form-control text-light">
+                        <label class="text-light" for="tamanho">Tamanho</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Observações</label>
+                    <textarea name="obs" id="obs" cols="30" rows="3"></textarea>
+                </div>
+            </div>
+           
+
+
+
+        </div>
+
+
+        <div class="alert corFundo">
+            <strong class="text-light">Resultado</strong>
+            <div class="row">
+                <div class="col">
+                   
+                </div>
+                <div class="col">
+                   
+                </div>
+                <div class="col">
+                    <h1 class="text-light" id="resultadoDefeitos">
+                        0%
+                    </h1>
+                </div>
+            </div>
+            <textarea style="display: none;" name="textResultado" id="textResultado" cols="30" rows="10"></textarea>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col">
+                <button class="myBtn rounded-circle text-dark p-3 btn cabecalho text-light" id="calcular" style="display: block;">                    
+                    <i class="fas text-light fa-2x fa-plus"></i>  
+                   
+                </button>
+
+                <button class="btn  btn-dark-green fixed-bottom text-dark" id="enviar" style="display: none; width: 100%;">
+                    <a for="enviar" class="text-dark" id="compartilhar">Enviar</a>
+                </button>
+
+            </div>
+        </div>
+        <br>
+       
+        <br>
+    </div>
+</body>

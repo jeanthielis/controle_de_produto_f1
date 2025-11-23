@@ -1,0 +1,219 @@
+
+<body>
+    <script src="script.js"></script>
+    <script src="mask.js"></script>
+
+    <div class="container-fluid transicao">
+
+        <div style="border: none;" class="row cabecalho text-dark p-2 fixed-top">
+            <div class="col">
+                <i id="index.html" class=" menu cabecalho text-light fas fa-arrow-left"></i>
+                <label id="index.html" class="menu text-light">Voltar</label>
+            </div>
+            <div class="col">
+                <strong class="position-relative text-light">Checklist</strong>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+       
+        <div class="alert corFundo">
+            <input style="display: none;" type="text" id="responsavel">
+
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Equipe:</label>
+                    <select class="bordaSelect form-control  text-light" name="equipe" id="equipe">
+                        <option value="1">Equipe 1</option>
+                        <option value="2">Equipe 2</option>
+                        <option value="3">Equipe 3</option>
+                        <option value="4">Equipe 4</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="text-light">Linha:</label>
+                    <select class="bordaSelect form-control text-light" name="linha" id="linha">
+                        <option value="0">Selecione</option>
+                        <option>4 </option>
+                        <option>5 </option>
+                        <option>6A/6B </option>
+                        <option>6A</option>
+                        <option>6B</option>
+                        <option>Saída do Forno</option>
+                    </select>
+                </div>
+            </div>
+            <form id="form-check">
+
+                <div class="row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text" id="referencia" class="form-control text-light">
+                            <label class="text-light" for="referencia">Referência</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text" id="lote" class=" form-control text-light">
+                            <label class="text-light" for="lote">Lote</label>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="alert corFundo">
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Marca:</label>
+                    <select class="bordaSelect  form-control text-light" name="marca" id="marca">
+                        <option value="0">Selecione</option>
+                        <option>Biancogres</option>
+<option>Marca Própria</option>
+                        <option>Incesa</option>
+                        <option>Biancogres
+(Galeria)</option>
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="alert corFundo">
+            <label class="text-light">Código de Barras</label>
+
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="extra" name="extra" class="form-control text-light">
+                        <label class="text-light" for="extra">Extra</label>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="comercial" name="comercial" class="form-control text-light">
+                        <label class="text-light" for="comercial">Comercial</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input type="number" id="popular" name="popular" class="form-control text-light">
+                        <label class="text-light" for="popular">Popular</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert corFundo">
+            <div class="row">
+                <div class="col p-1">
+                    <label class="text-light">Local de uso</label>
+                    <select name="local" id="local" class="bordaSelect text-light form-control">
+                        <option value="0">Selecione</option>
+                        <option>LA</option>
+                        <option>LC</option>
+                        <option>LD</option>
+                        <option>LE</option>
+                    </select>
+                </div>
+                <div class="col p-1">
+                    <label for="ad" class="text-light">Classe AD</label>
+                    <select name="ad" id="ad" class="form-control text-light bordaSelect">
+                        <option value="0">Selecione</option>
+                        <option>AD1</option>
+                        <option>AD2</option>
+                        <option>AD3</option>
+                        <option>AD4</option>
+
+                    </select>
+                </div>
+                <div class="col p-1">
+                    <label for="variacao" class="text-light">Variação Ton</label>
+                    <select name="variacao" id="variacao" class="form-control text-light bordaSelect">
+                        <option value="0">Selecione</option>
+                        <option>V1</option>
+                        <option>V2</option>
+                        <option>V3</option>
+                        <option>V4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-1">
+                    <div class="md-form">
+                        <input type="number" id="calibre" class="form-control text-light">
+                        <label class="text-light" for="calibre">Calibre</label>
+                    </div>
+                </div>
+                <div class="col p-1">
+                    <div class="md-form">
+                        <input type="number" id="peso" class="form-control text-light">
+                        <label class="text-light" for="peso">Peso</label>
+                    </div>
+                </div>
+                <div class="col p-1">
+                    <div class="md-form">
+                        <input type="number" id="espessura" class="form-control text-light">
+                        <label class="text-light" for="espessura">Espessura</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <br>
+        <div class="row">
+            <div class="col">
+                <button id="adicionar" type="button"
+                    class="myBtn rounded-circle text-dark p-3 btn cabecalho">                    
+                    <i class="fas text-light fa-2x fa-plus"></i>
+                    <span id="tamanho-lista"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                    0
+                </span>
+                </button>
+                <div class="transicaoBotao">
+                    <button style="display:none;" id="btn-visualizar" type="button"
+                    class="myBtnVi  rounded-circle text-dark p-3 btn btn-indigo" data-toggle="modal" data-target="#modalCheck">                    
+                    <i class="fas text-light fa-2x fa-eye"></i>
+                </button>
+
+                </div>
+                
+            </div>
+        </div>
+        <br>
+        <br>
+
+        </form>
+    </div>
+    <div class="modal fade " id="modalCheck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+  
+    <!-- Add class .modal-frame and then add class .modal-bottom (or other classes from list above) to set a position to the modal -->
+    <div class="modal-dialog modal-lg " role="document">
+  
+  
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
+            
+            <textarea style="border: none;" rows="20" cols="30" id="textResultadoCheck"></textarea>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col">
+                <a id="compartilhar"><button style="width: 100%;" id="enviarCheck" type="button" class="btn  btn-dark-green">Enviar</button></a>
+            </div>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

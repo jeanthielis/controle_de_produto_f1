@@ -1,0 +1,96 @@
+
+.menu-container{
+  border-radius: 1rem; 
+  padding-right: 2rem; 
+  padding-left: 1.3rem; 
+  background:rgba(92, 92, 92,1.0);
+  position: relative;
+  bottom: 15px;
+}
+
+
+.bordaSelect{
+    border-radius: 0rem; border-color: rgb(212, 212, 212);border-left: none;border-top: none;border-right: none;
+    background-color: transparent;
+}
+
+.corFundo{
+    background-color: #292929;
+}
+.cabecalho{
+  background: rgb(83, 114, 158);
+  color: white;
+}
+
+.myBtn {
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+    z-index: 9999;
+    
+
+  }
+  .myBtnVi {
+    position:fixed;
+    bottom:0.8%;
+    right: 2%;
+    z-index: 9999;
+
+  }
+  body{
+  background-image: url('fundo.png');
+  background-color: #ffffff; /* Used if the image is unavailable */
+  height: 100%; /* You must set a specified height */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  }
+  .vidro{
+    background: rgba(83,114,158,1.0);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 100%;
+    color: white;
+
+}
+.vidroLogin{
+  position: relative;
+  top: 150px;
+  margin:0.8%;
+  padding: 10%;
+  background: rgba(14, 12, 12, 0.6);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  width: 100%;
+  color: white;
+}
+#principal{
+  animation-duration: 1s;
+  animation-name: slidein;
+  
+}
+.transicao{
+  padding-left: 5%;
+  animation-duration: 1s;
+  animation-name: slidein2;
+}
+
+@keyframes slidein2 {
+  from {
+    margin-left: 100%;
+    width: 100%;
+    opacity: 0%;
+    
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+    padding-left: 5%;
+  }
+}

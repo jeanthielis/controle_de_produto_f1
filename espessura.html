@@ -1,0 +1,194 @@
+<body>
+    <script src="scriptEspessura.js"></script>
+    <script src="script.js"></script>
+    <script src="mask.js"></script>
+
+
+
+    <div  class="container-fluid transicao">
+       
+        <div  style="border: none;" class="row  cabecalho text-light p-2 fixed-top">
+            <div class="col">
+                <i id="index.html" class=" menu text-light fas fa-arrow-left"></i>
+                <label id="index.html" class="text-light menu">Voltar</label>
+            </div>
+            <div class="col">
+                    <strong>Espessura</strong>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div  class="alert corFundo" style="display: none;">
+            <div class="row">
+                <div class="col">
+                    <strong style="position: relative;top: 30px;" class="text-light" for="responsavel">Responsável</strong>
+                    <div class="md-form">
+                        <input id="responsavel" name="responsavel" type="text" class="form-control text-light">
+                    </div>
+                </div>
+               
+               
+            </div>
+
+        </div>
+        <div class="alert corFundo">
+            <div class="row">
+                <div class="col">
+                    <label class="text-light">Equipe:</label>
+                    <select class="bordaSelect form-control  text-light" name="equipe" id="equipe">
+                        <option value="1">Equipe 1</option>
+                        <option value="2">Equipe 2</option>
+                        <option value="3">Equipe 3</option>
+                        <option value="4">Equipe 4</option>
+                    </select>
+                </div>
+                    <div class="col">
+                        <label class="text-light" >Linha:</label>
+                        <select class="bordaSelect form-control text-light" name="linha" id="linha">
+                            <option value="0">Selecione</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            
+                            
+                        </select>
+                    </div>
+            </div>
+            <form id="form-check">
+
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                       <input type="text" id="referencia" class="form-control text-light">
+                       <label class="text-light" for="referencia">Referência</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                       <input type="text" id="lote" class=" form-control text-light">
+                       <label class="text-light" for="lote">Lote</label>
+                    </div>
+                </div>
+            </div>
+
+           </div>
+
+        <div  class="alert corFundo">
+           
+        <strong class="text-light">Analíse da Espessura</strong>
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                        <input id="espessuraNominal" name="espessuraNominal" type="tel" class="form-control text-light">
+                        <label class="text-light" for="espessuraNominal">Espessura da Embalagem</label>
+                    </div>
+                </div>
+            </div>    
+            <div class="row">
+                <div class="col">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="md-form">
+                        <input type="tel" id="prenca" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="prenca">Prença/Cavidade</label>
+                    </div>
+                    <br>
+                    <br>
+                    <h5 id="amostra-espessura" class="text-light text-10px">P0/C0:</h5>
+                </div>
+               
+                <div class="col">
+                    <div class="md-form">
+                        <input type="tel" id="lado1" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="lado1">Lado 1</label>
+                    </div>
+                    <div class="md-form">
+                        <input type="tel" id="lado2" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="lado2">Lado 2</label>
+                    </div>
+                    <div class="md-form">
+                        <input type="tel" id="lado3" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="lado3">Lado 3</label>
+                    </div>
+                    <div class="md-form">
+                        <input type="tel" id="lado4" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="lado4">Lado 4</label>
+                    </div>
+                    <div class="md-form">
+                        <input type="tel" id="lado5" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="lado5">Lado 5</label>
+                    </div>
+                    <div class="md-form">
+                        <input type="tel" id="lado6" name="vistoriadas" type="text" class="form-control text-light">
+                        <label class="text-light" for="lado6">Lado 6</label>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                
+            </div>
+        </div>
+        
+        <br>
+        <div class="row">
+            <div class="col">
+                <button class="myBtn rounded-circle text-light p-3 btn cabecalho" id="adicionarEspessura">                    
+                    <i class="fas fa-2x fa-plus"></i>
+                    <span id="tamanho-listaEspessura" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                        0
+                      </span>
+                </button>
+
+                <button style="display:none;" id="btn-visualizarEspessura" type="button"
+                        class="myBtnVi  rounded-circle text-dark p-3 btn btn-indigo" data-toggle="modal" data-target="#frameModalBottom">                    
+                        <i class="fas text-light fa-2x fa-eye"></i>
+                </button>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col">
+               
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+  <!-- Frame Modal Bottom -->
+  <div class="modal fade " id="frameModalBottom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+  
+    <!-- Add class .modal-frame and then add class .modal-bottom (or other classes from list above) to set a position to the modal -->
+    <div class="modal-dialog modal-lg " role="document">
+  
+  
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
+            
+            <textarea style="border: none;" rows="20" cols="30" id="textResultadoEspessura"></textarea>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col">
+                <a id="compartilhar"><button style="width: 100%;" id="enviarEspessura" type="button" class="btn  btn-dark-green">Enviar</button></a>
+            </div>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Frame Modal Bottom -->
+
+</body>

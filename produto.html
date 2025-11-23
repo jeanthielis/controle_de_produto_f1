@@ -1,0 +1,165 @@
+<body>
+    <script src="scriptProduto.js"></script>
+    <script src="script.js"></script>
+    
+
+
+    <div class="container-fluid transicao">
+        <div  style="border: none;" class="row  cabecalho text-light p-2 fixed-top">
+            <div class="col-4">
+                <i id="index.html" class=" menu text-light fas fa-arrow-left"></i>
+                <label id="index.html" class="text-light menu">Voltar</label>
+            </div>
+            <div class="col -3">
+                <strong id="visualizar-check" class="position-relative">Produto</strong>
+            </div>
+            <div class="col-5">
+                <a id="compartilharProduto">
+                    <button id="enviarProduto" style="border-radius: 3rem;" class="text-light btn btn-dark btn-sm">
+                        <i class="fa-1x fas fa-share-alt"></i>
+                        Enviar
+                    </button>
+    
+                </a>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+            <div  class="alert corFundo" style="display: none;">
+                <div class="row">
+                    <div class="col">
+                        <strong style="position: relative;top: 30px;" class="text-light" for="responsavel">Responsável</strong>
+                        <div class="md-form">
+                            <input id="responsavel" name="responsavel" type="text" class="form-control text-light">
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+
+            </div>
+           <div class="alert corFundo">
+            <div class="row">
+                <div class="col">
+                    <label class="text-light" >Equipe:</label>
+                    <select class="bordaSelect form-control  text-light" name="equipe" id="equipe">
+                        <option value="0">Selecione</option>
+                        <option value="1">Equipe 1</option>
+                        <option value="2">Equipe 2</option>
+                        <option value="3">Equipe 3</option>
+                        <option value="4">Equipe 4</option>
+                    </select>
+                </div>
+                    <div class="col">
+                        <label class="text-light">Linha:</label>
+                        <select class="bordaSelect form-control text-light" name="linha" id="linha">
+                            <option value="0">Selecione</option>
+                            <option>Linha 1 </option>
+                            <option>Linha 2 </option>
+                            <option>Escolha 3 </option>
+                            <option>Escolha 4 </option>
+                            <option>Linha 4 </option>
+                            <option>Linha 5 </option>
+                            <option>Escolha 6A/B </option>
+                            <option>Escolha 6A </option>
+                            <option>Escolha 6B </option>
+                            <option>Saída do Forno </option>
+                        </select>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="md-form">
+                       <input type="text" id="referencia" class="form-control text-light">
+                       <label class="text-light" for="referencia">Referência</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                       <input type="text" id="lote" class=" form-control text-light">
+                       <label class="text-light" for="lote">Lote</label>
+                    </div>
+                </div>
+            </div>
+            
+
+           </div>
+
+           <div class="alert corFundo">
+
+                <div class="row">
+                    <div class="col">
+                        <label class="text-light" >Análise:</label>
+                        <select class="bordaSelect form-control text-light" name="analise" id="analise">
+                            <option value=" ">Selecione</option>
+                            <option class="select" id="Tonalidade">Tonalidade</option>
+                            <option class="select" id="Textura">Textura</option>
+                            <option class="select" id="Brilho">Brilho</option>
+                            <option class="select" id="Aplicação">Aplicação</option>
+                            <option class="select" id="Borda Amarela">Borda Amarela</option>
+                            <option class="select" id ="Carregamento de Massa">Carregamento de Massa</option>
+                            <option class="select" id ="Calibre">Calibre</option>
+                            <option class="select" id="Deformação">Deformação</option>
+                            <option class="select" id="Marca de Grelha">Marca de Grelha</option>
+                            <option class="select" id="Mancha D'água">Mancha D'água</option>
+                            <option class="select" id="Lascamento">Lascamento</option>
+                            <option class="select" id="Polimento">Polimento</option>
+                            <option class="select" id="Variação de Brilho">Variação de Brilho</option>
+                            <option class="select" id="Alinhamento">Alinhamento</option>
+
+                            
+                            
+                            
+                        </select>
+
+                    </div>
+                    <div class="col">
+                        <label class="text-light" >Condição:</label>
+                        <select class="bordaSelect form-control text-light" name="result-analise" id="result-analise">
+                            <option value=" ">Selecione</option>
+                            <option value="0"> 🟢 Liberado</option>
+                            <option value="1"> 🟡 Melhora</option>
+                            <option value="2"> 🟠 Documento</option>
+                            <option value="3"> 🔴 Restrição/Fora do Padrão</option>
+
+                            
+                        </select>
+                    </div>
+                    </div>
+                    <br>
+                <div class="row">
+                    <div class="col">
+                        <label class="text-light" for="">Complemento de Informações</label><br>
+                            <textarea style="width: 100%; height: 120%;"  type="text" id="justificativa" class="text-light corFundo"></textarea>
+                    </div>
+                </div>
+                <br>
+                <br>
+                            
+          
+           </div>
+           <div class="row">
+            <div class="col">
+                <textarea name="" id="resultado-produto" style="width: 100%; height: 1000%;" ></textarea>
+                <input style="display: none;" type="text" id="resultado-cabecalho">
+            </div>
+           </div>
+          
+
+           <div class="row">
+            <div class="col-4">
+              
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <button id="adiconar-produto"  type="button" class="rounded-circle btn cabecalho text-light p-3 myBtn">
+                    <i class="fas fa-2x fa-plus"></i>
+                </button>
+            </div>
+           </div>
+     
+     
+    </div>
+</body>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+    <meta name="theme-color" content="#263142"/>
+
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta http-equiv="x-ua-compatible" content="ie=edge">
+       <title>Controle de Produto</title>
+       <!-- Font Awesome -->
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+       <!-- Google Fonts Roboto -->
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+       <!-- Bootstrap core CSS -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+       <!-- Material Design Bootstrap -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+       <!-- Your custom styles (optional) -->
+       <link rel="stylesheet" href="style.css">
+   </head>
+   <style>
+    .posicaoIcon{
+        position: relative;
+        right: 20px;
+    }
+
+    .labelPosicao{
+        position: relative;
+        right: 12px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+   </style>
+   <body>
+    <div  id="principal" class="conteiner-fluid">
+        <div id="resultado">
+        <br>
+        
+        
+         <div  id="menuEnabled" class="container bg-dark">
+            <div class="row">
+                <div class="col">
+                    <strong style="position: relative;top: 30px;" class="text-light" for="responsavel">Informe seu nome</strong>
+                    <div class="md-form">
+                        <input type="text" id="nome" class=" text-light form-control">
+                     </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong class="text-light">Responsável pela Análise</strong>
+                    <br>
+                    <label class="text-light" id="usuario"></label>
+                    <label class="text-light" id="usuarioEq"></label>
+                    <input style="display: none;" type="text" id="usuario-input">
+                </div>
+            </div>
+         
+           
+            <br>
+            <br>
+            <br>
+         </div>   
+       <div class="conteiner menu-container">
+        
+
+        <div class="row">
+            <div style="text-align: left;" class="col p-1" >
+                <button  id="check.html" type="button" class=" liberaMenu menu vidro btn ">
+                    <i  class="posicaoIcon fas fa-3x fa-clipboard-list"></i>
+                    <br>
+                    <br>
+                    <label class="labelPosicao">Checklist</label>
+                </button>
+            </div>
+
+
+            <div class="col p-1">
+                <button  id="defeitos.html"  type="button" class="liberaMenu menu btn vidro">
+                    <i class=" posicaoIcon fas fa-3x fa-chart-line"></i>
+                    <br>
+                    <br>
+                    <label class="labelPosicao">Defeitos</label>
+                </button>
+            </div>
+            <div class="col p-1">
+                <button id="espessura.html"  class="liberaMenu menu btn vidro">
+                    <i class="fas posicaoIcon fa-3x fa-ruler-vertical"></i>
+                    <br>
+                    <br>
+                    <Label class="labelPosicao">Espessura</Label>
+                </button>
+                
+               
+            </div>
+       </div>
+
+       <div class="row">
+        <div class=" col p-1">
+            <button  id="empeno.html" type="button" class="liberaMenu menu btn vidro">
+                <i class="posicaoIcon fas fa-3x fa-ruler-combined"></i>
+                <br>
+                <br>
+                <label class="labelPosicao">Empeno</label>
+            </button>
+           
+        </div>
+
+        <div class="col p-1">
+            <button  id="produto.html"  type="button" class="liberaMenu menu btn vidro">
+                <i class="fas posicaoIcon fa-3x fa-retweet"></i>
+                <br>
+                <br>
+                <label class="labelPosicao">Produto</label>
+            </button>
+        </div>
+        <div class="col p-1">
+           
+            <button  id="final.html"  class="liberaMenu menu btn vidro">
+                <i class="fas posicaoIcon fa-3x fa-check"></i>
+                <br>
+                <br>
+                <label class="labelPosicao">Final</label>
+            </button>
+        </div>
+    </div>
+
+   
+
+    <br>
+    <br>
+    </div>
+    <br>
+   
+    <div class="row">
+        <div style="text-align: center;" class="col bg-white fixed-bottom">
+            <label style="font-size: 8px;">Desenvolvido por Jean Thielis Braga Felipe</label> 
+            <label style="font-size: 8px;" >Versão 200924</label>
+        </div>
+    </div> 
+</div>
+        
+   
+    
+      
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <!-- Bootstrap tooltips -->
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+       <!-- Bootstrap core JavaScript -->
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+       <!-- MDB core JavaScript -->
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       <script src="script.js"></script>
+       
+   </body>
+</html>
