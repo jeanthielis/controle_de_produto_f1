@@ -30,38 +30,40 @@ $(document).ready(function(){
         var lote = $ ("#lote").val();
         var linha = $ ("#linha").val();
 
-
-        let soma = 0;
-        let quantidade = 0;
-
         espessura = parseFloat($("#espessuraNominal").val());
         prenca = $("#prenca").val();
         icon=" ";
         min = espessura - (espessura*0.05);
         max = espessura + (espessura*0.05);
 
+
+        let soma = 0;
+        let quantidadePreenchidos = 0;
         
         // Percorre todos os inputs
         $('.numero').each(function() {
             let valor = $(this).val().trim();
             
-            // Se estiver vazio, considera 0
-            if (valor === '') {
-                valor = 0;
-            } else {
-                valor = parseFloat(valor);
+            // Só considera se não estiver vazio
+            if (valor !== '') {
+                let valorNumerico = parseFloat(valor);
+                
+                // Verifica se é um número válido
+                if (!isNaN(valorNumerico)) {
+                    soma += valorNumerico;
+                    quantidadePreenchidos++;
+                }
             }
-            
-            soma += valor;
-            quantidade++;
         });
         
-        // Calcula a média
-        let media = soma / quantidade;
-        
-        // Exibe o resultado
-            
-       
+        // Calcula a média apenas se houver valores preenchidos
+        let media = 0;
+        if (quantidadePreenchidos > 0) {
+            media = soma / quantidadePreenchidos;
+        }
+
+    
+
         if (media < min || media > max ){icon = "🔴"} else{icon = "🟢";}
 
         cabecalho = "\n*Análise de Espessura*" +
