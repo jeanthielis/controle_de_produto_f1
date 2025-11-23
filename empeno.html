@@ -55,10 +55,9 @@
                         <select class="bordaSelect form-control text-light" name="linha" id="linha">
                             <option value="0">Selecione</option>
                            
-                            <option value="4">4</option>
-<option value="5">5</option>
-                            
-                            <option value="6">6A</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                             <option>Saída do Forno </option>
                         </select>
                     </div>
@@ -91,105 +90,19 @@
            </div>
             
            <div class="alert corFundo">
-            <strong class="text-light"> Peça (+)</strong>
-            <div class="row">
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladoa" name="ladoa" class=" mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladoa">Lado A</label>
-                     </div>
-                </div>
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladob" name="ladob" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladob">Lado B</label>
-                     </div>
-                </div>
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladoc" name="ladoc" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladoc">Lado C</label>
-                     </div>
-                </div>
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladod" name="ladod" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladod">Lado D</label>
-                     </div>
-                </div>
-            </div>
-            <br>
-            <strong class="text-light">Central</strong>
-            <div class="row">
-                <div class="col">
-                    <div class="md-form">
-                        <input type="tel" id="centrala" name="centrala" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="centrala">Central A</label>
-                     </div>
-                </div>
-                <div class="col">
-                    <div class="md-form">
-                        <input type="tel" id="centralb" name="centralb" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="centralb">Central B</label>
-                     </div>
-                </div>
-            </div>
+                <div id="container-pecas"></div>
 
-           </div>
+            </div>           
 
-           <div class="alert corFundo">
-            <strong class="text-light">Peça (-) </strong>
-
-            <div class="row">
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladoA" name="ladoA" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladoA">Lado A</label>
-                     </div>
-                </div>
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladoB" name="ladoB" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladoB">Lado B</label>
-                     </div>
-                </div>
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladoC" name="ladoC" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladoC">Lado C</label>
-                     </div>
-                </div>
-                <div class="col p-0 m-1">
-                    <div class="md-form">
-                        <input type="tel" id="ladoD" name="ladoD" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="ladoD">Lado D</label>
-                     </div>
-                </div>
-               
-            </div>
-
-            <strong class="text-light">Central</strong>
-            <div class="row">
-                <div class="col">
-                    <div class="md-form">
-                        <input type="tel" id="centralA" name="centralA" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="centralA">Central A</label>
-                     </div>
-                </div>
-                <div class="col">
-                    <div class="md-form">
-                        <input type="tel" id="centralB" name="centralB" class="mascaraEmpeno form-control text-light">
-                        <label class="text-light" for="centralB">Central B</label>
-                     </div>
-                </div>
-            </div>
-           </div>
           
            <br>
           
            <br>
            <div class="row">
             <div class="col">
+                <button id="btn-adicionar-peca" type="button" class="myBtn rounded-circle text-dark p-3 btn text-light cabelho">
+                    <i class="fas fa-2x fa-plus"></i>
+                </button>
                 <button id="adicionarEmpeno" type="button" class="myBtn rounded-circle text-dark p-3 btn text-light cabecalho">                    
                     <i class="fas fa-2x fa-plus"></i>
                     <span id="tamanho-lista" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">

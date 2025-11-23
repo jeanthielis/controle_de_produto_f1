@@ -3,6 +3,83 @@ $(document).ready(function () {
     data = new Date();
     data_nova=data.getDate()+"/"+data.getMonth()+"/"+data.getFullYear();
 
+        var contadorPecas = 0;
+
+        function adicionarPecaAuto() {
+            contadorPecas++;
+            adicionarPeca(contadorPecas);
+        }
+
+        // Uso:
+            $('#btn-adicionar-peca').click(function() {
+                adicionarPecaAuto();
+            });
+
+
+    function adicionarPeca(numeroPeca) {
+    // Criar o HTML dinamicamente
+    var html = `
+        <strong class="text-light"> Peça ${numeroPeca} </strong>
+        <div class="row">
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladoa_${numeroPeca}" name="ladoa_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladoa_${numeroPeca}">Lado A</label>
+                </div>
+            </div>
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladob_${numeroPeca}" name="ladob_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladob_${numeroPeca}">Lado B</label>
+                </div>
+            </div>
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladoc_${numeroPeca}" name="ladoc_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladoc_${numeroPeca}">Lado C</label>
+                </div>
+            </div>
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladod_${numeroPeca}" name="ladod_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladod_${numeroPeca}">Lado D</label>
+                </div>
+            </div>
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladoe_${numeroPeca}" name="ladoe_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladoe_${numeroPeca}">Lado E</label>
+                </div>
+            </div>
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladof_${numeroPeca}" name="ladof_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladof_${numeroPeca}">Lado F</label>
+                </div>
+            </div>
+            <div class="col p-0 m-1">
+                <div class="md-form">
+                    <input type="tel" id="ladog_${numeroPeca}" name="ladog_${numeroPeca}" class="mascaraEmpeno form-control text-light">
+                    <label class="text-light" for="ladog_${numeroPeca}">Lado G</label>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Adicionar ao container desejado
+    $('#container-pecas').append(html);
+}
+
+// Exemplo de uso:
+$(document).ready(function() {
+    // Adicionar a primeira peça
+    adicionarPeca(1);
+    
+    // Para adicionar mais peças posteriormente:
+    // adicionarPeca(2);
+    // adicionarPeca(3);
+});
+
     $(".menu").click(function(){
         var menu=this.id;
         $.ajax({
