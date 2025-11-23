@@ -1,6 +1,7 @@
 $(document).ready(function(){
     vetor=[];
 
+
     $("#espessuraNominal,#lado1,#lado2,#lado3,#lado4").mask("0.00");
     $("#prenca").mask("P0/C0");
 
@@ -34,7 +35,16 @@ $(document).ready(function(){
         icon=" ";
         min = espessura - (espessura*0.05);
         max = espessura + (espessura*0.05);
-        media = (parseFloat($("#lado1").val()?0:$("#lado1").val()) + parseFloat($("#lado2").val()) + parseFloat($("#lado3").val())+ parseFloat($("#lado4").val()))/4; 
+
+
+        $('#lado1').on('blur', function() {
+            var valor = $(this).val().trim();
+            if (valor === '' || valor === null) {
+                $(this).val('0');
+            }
+        });
+        
+        media = (parseFloat($("#lado1")) + parseFloat($("#lado2").val()) + parseFloat($("#lado3").val())+ parseFloat($("#lado4").val()))/4; 
        
         if (media < min || media > max ){icon = "🔴"} else{icon = "🟢";}
 
