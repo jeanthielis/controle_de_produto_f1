@@ -30,12 +30,37 @@ $(document).ready(function(){
         var lote = $ ("#lote").val();
         var linha = $ ("#linha").val();
 
+
+        let soma = 0;
+        let quantidade = 0;
+
         espessura = parseFloat($("#espessuraNominal").val());
         prenca = $("#prenca").val();
         icon=" ";
         min = espessura - (espessura*0.05);
         max = espessura + (espessura*0.05);
-        media = (parseFloat($("#lado1")) + parseFloat($("#lado2").val()) + parseFloat($("#lado3").val())+ parseFloat($("#lado4").val()))/4; 
+
+        
+        // Percorre todos os inputs
+        $('.numero').each(function() {
+            let valor = $(this).val().trim();
+            
+            // Se estiver vazio, considera 0
+            if (valor === '') {
+                valor = 0;
+            } else {
+                valor = parseFloat(valor);
+            }
+            
+            soma += valor;
+            quantidade++;
+        });
+        
+        // Calcula a média
+        let media = soma / quantidade;
+        
+        // Exibe o resultado
+            
        
         if (media < min || media > max ){icon = "🔴"} else{icon = "🟢";}
 
