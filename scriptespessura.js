@@ -34,7 +34,7 @@ $(document).ready(function(){
         icon=" ";
         min = espessura - (espessura*0.05);
         max = espessura + (espessura*0.05);
-        media = (parseFloat($("#lado1").val()?0:$("#lado1")) + parseFloat($("#lado2").val()) + parseFloat($("#lado3").val())+ parseFloat($("#lado4").val()))/4; 
+        media = (parseFloat($("#lado1").val()?0:$("#lado1").val()) + parseFloat($("#lado2").val()) + parseFloat($("#lado3").val())+ parseFloat($("#lado4").val()))/4; 
        
         if (media < min || media > max ){icon = "🔴"} else{icon = "🟢";}
 
