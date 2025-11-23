@@ -45,7 +45,7 @@
   background-size: cover; /* Resize the background image to cover the entire container */
   }
   .vidro{
-    background: rgba(83,114,158,1.0);
+    background: rgb(17, 71, 64);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
