@@ -1,148 +1,608 @@
-<body>
-    <script src="scriptEmpeno.js"></script>
-    <script src="script.js"></script>
-    <script src="mask.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Empeno</title>
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent: #4a9cff;
+            --success: #4caf50;
+            --danger: #f44336;
+            --border: #333333;
+        }
 
-    <div class="container-fluid transicao">
-    
-        <div  style="border: none;" class="row cabecalho text-light p-2 fixed-top">
-            <div class="col">
-                <i id="index.html" class=" menu text-light fas fa-arrow-left"></i>
-                <label id="index.html" class="menu text-light">Voltar</label>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 16px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: #3a7dcc;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-success:hover {
+            background-color: #3d8b40;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+        }
+
+        .btn-danger:hover {
+            background-color: #d32f2f;
+        }
+
+        .piece-container {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .piece-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .piece-title {
+            font-weight: 500;
+        }
+
+        .remove-piece {
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .sides-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .side-input {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-good {
+            background-color: var(--success);
+        }
+
+        .status-bad {
+            background-color: var(--danger);
+        }
+
+        .report-container {
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 24px;
+            white-space: pre-line;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .actions .btn {
+            flex: 1;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .sides-container {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Relatório de Empeno</h1>
+            <p>Sistema para registro e análise de empeno de peças</p>
+        </header>
+
+        <div class="card">
+            <div class="form-group">
+                <label for="line">Linha de Produção</label>
+                <select id="line">
+                    <option value="">Selecione a linha</option>
+                    <option value="1">Linha 1</option>
+                    <option value="2">Linha 2</option>
+                    <option value="3">Linha 3</option>
+                </select>
             </div>
-            <div class="col">
-                <strong>
-                    Empeno
-                   
-                </strong>
-                
-               
-              
+
+            <div class="form-group">
+                <label for="reference">Referência</label>
+                <input type="text" id="reference" placeholder="Digite a referência">
             </div>
-            <div class="col">
+
+            <div class="form-group">
+                <label for="batch">Lote</label>
+                <input type="text" id="batch" placeholder="Digite o lote">
+            </div>
+
+            <div class="form-group">
+                <label for="team">Equipe</label>
+                <input type="text" id="team" placeholder="Digite a equipe">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" placeholder="Digite o nome">
             </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-            <div  class="alert corFundo" style="display: none;">
-                <div  class="row">
-                    <div  class="col">
-                        <strong style="position: relative;top: 30px;" class="text-light" for="responsavel">Responsável</strong>
-                        <div class="md-form">
-                            <input id="responsavel" name="responsavel" type="text" class="form-control text-light">
+        <div class="card">
+            <h2 style="margin-bottom: 16px;">Peças</h2>
+            <div id="pieces-container">
+                <!-- Peças serão adicionadas aqui dinamicamente -->
+            </div>
+            <button id="add-piece" class="btn">Adicionar Peça</button>
+        </div>
+
+        <button id="generate-report" class="btn btn-success">Gerar Relatório</button>
+
+        <div id="report-section" class="hidden">
+            <div class="card">
+                <h2 style="margin-bottom: 16px;">Relatório</h2>
+                <div id="report-container" class="report-container">
+                    <!-- Relatório será gerado aqui -->
+                </div>
+                <div class="actions">
+                    <button id="copy-report" class="btn">Copiar Relatório</button>
+                    <button id="share-whatsapp" class="btn btn-success">Compartilhar no WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const piecesContainer = document.getElementById('pieces-container');
+            const addPieceBtn = document.getElementById('add-piece');
+            const generateReportBtn = document.getElementById('generate-report');
+            const reportSection = document.getElementById('report-section');
+            const reportContainer = document.getElementById('report-container');
+            const copyReportBtn = document.getElementById('copy-report');
+            const shareWhatsappBtn = document.getElementById('share-whatsapp');
+            
+            let pieceCount = 0;
+
+            // Adicionar primeira peça
+            addPiece();
+
+            // Evento para adicionar nova peça
+            addPieceBtn.addEventListener('click', addPiece);
+
+            // Evento para gerar relatório
+            generateReportBtn.addEventListener('click', generateReport);
+
+            // Evento para copiar relatório
+            copyReportBtn.addEventListener('click', copyReport);
+
+            // Evento para compartilhar no WhatsApp
+            shareWhatsappBtn.addEventListener('click', shareWhatsapp);
+
+            // Função para aplicar máscara nos inputs numéricos
+            function applyNumberMask(input) {
+                let previousValue = '';
+                
+                input.addEventListener('input', function(e) {
+                    let value = e.target.value;
+                    
+                    // Salva o valor anterior para comparação
+                    previousValue = value;
+                    
+                    // Remove tudo que não é número, sinal negativo ou ponto
+                    value = value.replace(/[^\d.-]/g, '');
+                    
+                    // Permite apenas um sinal negativo no início
+                    if (value.includes('-')) {
+                        if (value.indexOf('-') !== 0) {
+                            value = '-' + value.replace(/-/g, '');
+                        }
+                    }
+                    
+                    // Permite apenas um ponto decimal
+                    const parts = value.split('.');
+                    if (parts.length > 2) {
+                        value = parts[0] + '.' + parts.slice(1).join('');
+                    }
+                    
+                    // Limita a duas casas decimais durante a digitação
+                    if (parts.length === 2) {
+                        value = parts[0] + '.' + parts[1].slice(0, 2);
+                    }
+                    
+                    // Atualiza o valor apenas se mudou
+                    if (value !== e.target.value) {
+                        e.target.value = value;
+                    }
+                    
+                    // Atualiza o status em tempo real
+                    updateSideStatus.call(e.target);
+                });
+                
+                // Formata apenas quando o campo perde o foco
+                input.addEventListener('blur', function() {
+                    let value = this.value;
+                    
+                    if (value && value !== '-') {
+                        // Remove zeros à esquerda desnecessários
+                        value = value.replace(/^0+/, '') || '0';
+                        
+                        // Se começar com ponto, adiciona 0 antes
+                        if (value.startsWith('.')) {
+                            value = '0' + value;
+                        }
+                        
+                        // Se for apenas sinal negativo, coloca 0
+                        if (value === '-') {
+                            value = '-0';
+                        }
+                        
+                        // Se terminar com ponto, remove o ponto
+                        if (value.endsWith('.')) {
+                            value = value.slice(0, -1);
+                        }
+                        
+                        // Converte para número e formata com duas casas decimais
+                        const numValue = parseFloat(value);
+                        if (!isNaN(numValue)) {
+                            // Formata para ter sempre duas casas decimais
+                            value = numValue.toFixed(2);
+                            
+                            // Garante que números negativos mantenham o sinal
+                            if (numValue < 0) {
+                                value = '-' + Math.abs(numValue).toFixed(2);
+                            }
+                        }
+                        
+                        this.value = value;
+                    }
+                    
+                    updateSideStatus.call(this);
+                });
+                
+                // Permite digitar números negativos pressionando "-" no início
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === '-' && this.selectionStart === 0 && !this.value.includes('-')) {
+                        // Permite adicionar o sinal negativo no início
+                        return true;
+                    }
+                });
+            }
+
+            function addPiece() {
+                pieceCount++;
+                const pieceDiv = document.createElement('div');
+                pieceDiv.className = 'piece-container';
+                pieceDiv.innerHTML = `
+                    <div class="piece-header">
+                        <span class="piece-title">Peça ${pieceCount}</span>
+                        <button class="remove-piece">×</button>
+                    </div>
+                    <div class="sides-container">
+                        <div class="side-input">
+                            <label>Lado 1</label>
+                            <input type="text" class="side-value" placeholder="0.00">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text"></span>
+                            </div>
+                        </div>
+                        <div class="side-input">
+                            <label>Lado 2</label>
+                            <input type="text" class="side-value" placeholder="0.00">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text"></span>
+                            </div>
+                        </div>
+                        <div class="side-input">
+                            <label>Lado 3</label>
+                            <input type="text" class="side-value" placeholder="0.00">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text"></span>
+                            </div>
+                        </div>
+                        <div class="side-input">
+                            <label>Lado 4</label>
+                            <input type="text" class="side-value" placeholder="0.00">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text"></span>
+                            </div>
                         </div>
                     </div>
-                   
-                   
-                </div>
-
-            </div>
-           <div class="alert corFundo">
-            <div class="row">
-                <div class="col">
-                    <label class="text-light" >Equipe:</label>
-                    <select class="bordaSelect form-control  text-light" name="equipe" id="equipe">
-                        <option value="1">Equipe 1</option>
-                        <option value="2">Equipe 2</option>
-                        <option value="3">Equipe 3</option>
-                        <option value="4">Equipe 4</option>
-                    </select>
-                </div>
-                    <div class="col">
-                        <label class="text-light" >Linha:</label>
-                        <select class="bordaSelect form-control text-light" name="linha" id="linha">
-                            <option value="0">Selecione</option>
-                           
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option>Saída do Forno </option>
-                        </select>
+                    <div style="margin-top: 12px;">
+                        <div class="side-input">
+                            <label>Lado Central 1</label>
+                            <input type="text" class="central-side-value" placeholder="0.00">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text"></span>
+                            </div>
+                        </div>
+                        <div class="side-input">
+                            <label>Lado Central 2</label>
+                            <input type="text" class="central-side-value" placeholder="0.00">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span class="status-text"></span>
+                            </div>
+                        </div>
                     </div>
-            </div>
-            <form id="form-empeno">
+                `;
 
-            <div class="row">
-                <div class="col">
-                    <div class="md-form">
-                       <input type="text" id="referencia" class="form-control text-light">
-                       <label class="text-light" for="referencia">Referência</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="md-form">
-                       <input type="text" id="lote" class=" form-control text-light">
-                       <label class="text-light" for="lote">Lote</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="md-form">
-                       <input type="text" id="lote-base" class=" form-control text-light">
-                       <label id="lbl-loteBase" class="text-light" for="lote-base">Lote Base</label>
-                    </div>
-                </div>
-            </div>
+                piecesContainer.appendChild(pieceDiv);
 
-           </div>
-            
-           <div class="alert corFundo">
-                <div id="container-pecas"></div>
+                // Aplicar máscara aos inputs numéricos
+                const numberInputs = pieceDiv.querySelectorAll('.side-value, .central-side-value');
+                numberInputs.forEach(input => {
+                    applyNumberMask(input);
+                });
 
-            </div>           
+                // Adicionar evento para remover peça
+                const removeBtn = pieceDiv.querySelector('.remove-piece');
+                removeBtn.addEventListener('click', function() {
+                    if (pieceCount > 1) {
+                        piecesContainer.removeChild(pieceDiv);
+                        pieceCount--;
+                        updatePieceNumbers();
+                    }
+                });
 
-          
-           <br>
-          
-           <br>
-           <div class="row">
-            <div class="col">
-                <button id="btn-adicionar-peca" type="button" class="myBtn rounded-circle text-dark p-3 btn text-light cabelho">
-                    <i class="fas fa-2x fa-plus"></i>
-                </button>
-                <button id="adicionarEmpeno" type="button" class="myBtn rounded-circle text-dark p-3 btn text-light cabecalho">                    
-                    <i class="fas fa-2x fa-plus"></i>
-                    <span id="tamanho-lista" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                        0
-                      </span>
-                </button>
-                        <button style="display:none;" id="btn-visualizarEmpeno" type="button"
-                        class="myBtnVi  rounded-circle text-dark p-3 btn btn-indigo" data-toggle="modal" data-target="#modalEmpeno">                    
-                        <i class="fas text-light fa-2x fa-eye"></i>
-                    </button>
-    
-            </div>
-           </div>
-           <br>
-           <br>
-            
-        </form>
-    </div>
-    <div class="modal fade " id="modalEmpeno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
-  
-    <!-- Add class .modal-frame and then add class .modal-bottom (or other classes from list above) to set a position to the modal -->
-    <div class="modal-dialog modal-lg " role="document">
-  
-  
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="row d-flex justify-content-center align-items-center">
-            
-            <textarea style="border: none;" rows="20" cols="30" id="textResultadoEmpeno"></textarea>
+                updateSideStatus.call(numberInputs[0]);
+            }
 
-          </div>
-        </div>
-        <div class="modal-footer">
-            <div class="col">
-                <a id="compartilhar"><button style="width: 100%;" id="enviarEmpeno" type="button" class="btn  btn-dark-green">Enviar</button></a>
-            </div>
-           
-        </div>
-      </div>
-    </div>
-  </div>
+            function updatePieceNumbers() {
+                const pieces = document.querySelectorAll('.piece-container');
+                pieces.forEach((piece, index) => {
+                    piece.querySelector('.piece-title').textContent = `Peça ${index + 1}`;
+                });
+            }
+
+            function updateSideStatus() {
+                const sideInput = this;
+                const value = parseFloat(sideInput.value);
+                const statusIndicator = sideInput.parentElement.querySelector('.status-indicator');
+                const statusDot = statusIndicator.querySelector('.status-dot');
+                const statusText = statusIndicator.querySelector('.status-text');
+                
+                if (isNaN(value)) {
+                    statusDot.className = 'status-dot';
+                    statusText.textContent = '';
+                    return;
+                }
+
+                const line = document.getElementById('line').value;
+                const isCentral = sideInput.classList.contains('central-side-value');
+                
+                let isValid = false;
+                
+                if (isCentral) {
+                    // Empeno Central: -1.80 a +1.80 para todas as linhas
+                    isValid = value >= -1.80 && value <= 1.80;
+                } else {
+                    // Empeno Lateral
+                    if (line === '1') {
+                        isValid = value >= -0.40 && value <= 1.00;
+                    } else if (line === '2' || line === '3') {
+                        isValid = value >= -1.00 && value <= 1.50;
+                    }
+                }
+
+                if (isValid) {
+                    statusDot.className = 'status-dot status-good';
+                    statusText.textContent = 'Dentro do range';
+                    statusText.style.color = '#4caf50';
+                } else {
+                    statusDot.className = 'status-dot status-bad';
+                    statusText.textContent = 'Fora do range';
+                    statusText.style.color = '#f44336';
+                }
+            }
+
+            function generateReport() {
+                const line = document.getElementById('line').value;
+                const reference = document.getElementById('reference').value;
+                const batch = document.getElementById('batch').value;
+                const team = document.getElementById('team').value;
+                const name = document.getElementById('name').value;
+
+                // Validar campos obrigatórios
+                if (!line || !reference || !batch || !team || !name) {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                    return;
+                }
+
+                let report = `RELATÓRIO DE EMPENO\n`;
+                report += `===================\n\n`;
+                report += `Linha: ${line}\n`;
+                report += `Referência: ${reference}\n`;
+                report += `Lote: ${batch}\n`;
+                report += `Equipe: ${team}\n`;
+                report += `Nome: ${name}\n\n`;
+                report += `PEÇAS ANALISADAS:\n`;
+                report += `===================\n\n`;
+
+                const pieces = document.querySelectorAll('.piece-container');
+                pieces.forEach((piece, index) => {
+                    report += `Peça ${index + 1}:\n`;
+                    
+                    // Lados laterais
+                    const sideInputs = piece.querySelectorAll('.side-value');
+                    sideInputs.forEach((input, sideIndex) => {
+                        const value = input.value;
+                        if (value) {
+                            const statusIndicator = input.parentElement.querySelector('.status-indicator');
+                            const statusText = statusIndicator.querySelector('.status-text').textContent;
+                            const statusSymbol = statusText === 'Dentro do range' ? '✅' : '❌';
+                            report += `  Lado ${sideIndex + 1}: ${value} ${statusSymbol}\n`;
+                        }
+                    });
+                    
+                    // Lados centrais
+                    const centralSideInputs = piece.querySelectorAll('.central-side-value');
+                    centralSideInputs.forEach((input, centralIndex) => {
+                        const value = input.value;
+                        if (value) {
+                            const statusIndicator = input.parentElement.querySelector('.status-indicator');
+                            const statusText = statusIndicator.querySelector('.status-text').textContent;
+                            const statusSymbol = statusText === 'Dentro do range' ? '✅' : '❌';
+                            report += `  Lado Central ${centralIndex + 1}: ${value} ${statusSymbol}\n`;
+                        }
+                    });
+                    
+                    report += '\n';
+                });
+
+                reportContainer.textContent = report;
+                reportSection.classList.remove('hidden');
+            }
+
+            function copyReport() {
+                const reportText = reportContainer.textContent;
+                navigator.clipboard.writeText(reportText).then(() => {
+                    alert('Relatório copiado para a área de transferência!');
+                }).catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar o relatório.');
+                });
+            }
+
+            function shareWhatsapp() {
+                const reportText = reportContainer.textContent;
+                const encodedText = encodeURIComponent(reportText);
+                const whatsappUrl = `https://wa.me/?text=${encodedText}`;
+                window.open(whatsappUrl, '_blank');
+            }
+        });
+    </script>
 </body>
+</html>
