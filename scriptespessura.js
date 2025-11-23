@@ -35,15 +35,6 @@ $(document).ready(function(){
         icon=" ";
         min = espessura - (espessura*0.05);
         max = espessura + (espessura*0.05);
-
-
-        $('#lado1').on('blur', function() {
-            var valor = $(this).val().trim();
-            if (valor === '' || valor === null) {
-                $(this).val('0');
-            }
-        });
-        
         media = (parseFloat($("#lado1")) + parseFloat($("#lado2").val()) + parseFloat($("#lado3").val())+ parseFloat($("#lado4").val()))/4; 
        
         if (media < min || media > max ){icon = "🔴"} else{icon = "🟢";}
