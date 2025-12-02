@@ -2,7 +2,7 @@ $(document).ready(function(){
     vetor=[];
 
 
-    $("#espessuraNominal,#lado1,#lado2,#lado3,#lado4,#lado5,#lado6").mask("00.00");
+    $("#espessuraNominal,#lado1,#lado2,#lado3,#lado4,#lado5,#lado6").mask("#0.00");
     $("#prenca").mask("P0/C0");
 
    
