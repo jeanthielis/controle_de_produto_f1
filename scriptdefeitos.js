@@ -11,8 +11,7 @@ $(document).ready(function () {
     }
 
     $("#esquadro").mask("0.00");
-    $("#tamanho").mask("000.0");
-
+    $("#tamanho").mask("0000",{reverse:true});
 
     $("#lote").keyup(function(){
         $(this).val($(this).val().toUpperCase());
