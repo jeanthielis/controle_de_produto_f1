@@ -90,7 +90,7 @@ $(document).ready(function () {
         $("#enviar").fadeOut("slow");
         $("#calcular").fadeIn("slow");
     });
-    $("#enviar").click(function(){
+    $(".enviar").click(function(){
         try {
             resultado=$("#textResultado").val();
             conteudo = encodeURIComponent(resultado);
